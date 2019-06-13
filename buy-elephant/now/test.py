@@ -1,0 +1,20 @@
+import flask
+import json
+import requests
+URL = 'https://discovery-stb3.ertelecom.ru/api/v3/pages/search?text=зик&limit=10'
+
+DEFAULT_HEADERS = {
+        'View': 'stb3',
+        'X-Auth-Token': 'eyJkYXRhIjoie1wiZXhwaXJlc1wiOjE1NjA2OTA3MDQsXCJsaWZlc3BhblwiOjI1OTIwMDAsXCJwcmluY2lwYWxcIjp7XCJmcmVlbWl1bVwiOjAsXCJleHRpZFwiOlwibWFjOkY4OkYwOjgyOjQwOjg3OjkxXCIsXCJzdWJzY3JpYmVyXCI6e1wiaXNfZ3Vlc3RcIjpmYWxzZSxcInR5cGVcIjpcInN1YnNjcmliZXJcIixcImlkXCI6MzczMTQzNzcsXCJncm91cHNcIjpbe1wiaWRcIjozNTAzNyxcImV4dGlkXCI6XCJlcjpkb21haW46cGVybVwifV0sXCJleHRpZFwiOlwicGVybTo1OTAwMTc1ODcwNjRcIn0sXCJwbGF0Zm9ybVwiOntcIm9wZXJhdG9yXCI6e1widGl0bGVcIjpcIlwiLFwiaWRcIjoyLFwiZXh0aWRcIjpcImVyXCJ9LFwidGl0bGVcIjpcIlwiLFwiaWRcIjo0NCxcImV4dGlkXCI6XCJhbmRyb2lkX2lwdHZcIn0sXCJhdHRyc1wiOm51bGwsXCJncm91cHNcIjpbe1wiaWRcIjozNDE5NyxcImV4dGlkXCI6XCJlcjpldmVyeW9uZVwifV0sXCJvcGVyYXRvclwiOntcInRpdGxlXCI6XCJcIixcImlkXCI6MixcImV4dGlkXCI6XCJlclwifSxcInR5cGVcIjpcImRldmljZVwiLFwiaWRcIjo1ODA0MDI4NH19Iiwic2lnbmF0dXJlIjoiZFNSYXRkU25vNTQ0NHhDNjNDSkExXC9lRFVoa3RHb0RvV0JuOFgzVHgweFk9In0='
+}
+
+
+
+def findMovie():
+    global URL
+    global DEFAULT_HEADERS
+    found = requests.get(url=URL,headers=DEFAULT_HEADERS)
+    return str(found.json())
+
+
+print(findMovie())
